@@ -1,0 +1,15 @@
+<p>
+  <b>Title:</b>
+  <%= outfit.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= outfit.description %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Outfit', [outfit.user, outfit],
+              :confirm => 'Are you sure?',
+              :method => :delete %>
+</p>

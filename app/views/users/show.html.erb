@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @user.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @user.email %>
+</p>
+
+<p>
+  <b>Location:</b>
+  <%= @user.location %>
+</p>
+
+<p>
+  <b>About:</b>
+  <%= @user.about %>
+</p>
+
+<h2>Pieces</h2>
+<%= render @user.pieces %>
+
+
+<h2>Add a piece:</h2>
+<%= render "pieces/form" %>
+
+<h2>Outfits</h2>
+<%= render @user.outfits%>
+
+<h2>Add an outfit</h2>
+<%= render "outfits/form"%>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

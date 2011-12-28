@@ -1,0 +1,15 @@
+<p>
+  <b>Name:</b>
+  <%= piece.name %>
+</p>
+
+<p>
+  <b>Link:</b>
+  <%= piece.link %>
+</p>
+
+<p>
+  <%= link_to 'Destroy Piece', [piece.user, piece],
+              :confirm => 'Are you sure?',
+              :method => :delete %>
+</p>
