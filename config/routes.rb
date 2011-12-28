@@ -1,7 +1,9 @@
 Outft::Application.routes.draw do
   
+  get "sessions/new"
+
   resources :outfits
-  
+  resources :sessions, :only => [:new, :create, :destroy]
   resources :users do
     resources :pieces
     resources :outfits
@@ -9,6 +11,10 @@ Outft::Application.routes.draw do
       get :following, :followers
     end
   end
+  
+  match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
 
   get "home/index"
 
