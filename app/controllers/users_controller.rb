@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   # GET /users.json
   def index
     @users = User.all
-
+    @title = "Users"
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @users }
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    @title = @user.name
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @user }
@@ -25,7 +25,8 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+    @title = "Sign up"
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @user }
@@ -34,6 +35,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    @title = "Edit User"
     @user = User.find(params[:id])
   end
 
@@ -41,12 +43,13 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+    
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render json: @user, status: :created, location: @user }
       else
+        @title = "Sign up"
         format.html { render action: "new" }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
