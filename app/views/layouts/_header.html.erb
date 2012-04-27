@@ -1,5 +1,11 @@
-
+<div id = "header">
+	
+  <span class = "logo">outft</span>
+	
+  <span class = "right">
   <% if signed_in? %>
-    <%= current_user.name %>
+    <%= image_tag current_user.avatar.url(:small) %>
+    <%= link_to current_user.name, current_user %> | <%= link_to "Sign Out", '/signout' %>
   <% end %>
-  
+	</span>
+</div>

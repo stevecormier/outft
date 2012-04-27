@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @title = "Users"
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @users }
+      format.json { render :json => @users }
     end
   end
 
@@ -14,10 +14,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @pieces = @user.pieces
     @title = @user.name
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @user }
+      format.json { render :json => @user }
     end
   end
 
@@ -29,7 +30,7 @@ class UsersController < ApplicationController
     
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @user }
+      format.json { render :json => @user }
     end
   end
 
@@ -47,12 +48,12 @@ class UsersController < ApplicationController
     respond_to do |format|
       if @user.save
         sign_in @user
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render json: @user, status: :created, location: @user }
+        format.html { redirect_to @user, :notice => 'User was successfully created.' }
+        format.json { render :json => @user, :status => :created, :location => @user }
       else
         @title = "Sign up"
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :action => "new" }
+        format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -61,14 +62,14 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    @title = @user.name
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, :notice => 'User was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render :action => "edit" }
+        format.json { render :json => @user.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -83,5 +84,19 @@ class UsersController < ApplicationController
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
+  end
+  
+  def following
+    @title = "Following"
+    @user = User.find(params[:id])
+    @users = @user.following.paginate(:page => params[:page])
+    render 'show_follow'
+  end
+  
+  def followers
+    @title = "Followers"
+    @user = User.find(params[:id])
+    @users = @user.followers.paginate(:page => params[:page])
+    render 'show_follow'
   end
 end

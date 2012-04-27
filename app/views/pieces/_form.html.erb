@@ -1,8 +1,12 @@
-<%= form_for([@user, @user.pieces.build]) do |f| %>
+<%= form_for([@user, @user.pieces.build], :html => { :multipart => true }) do |f| %>
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class = "field">
+    <%= f.label "Choose an image: " %>
+    <%= f.file_field :image %>
+	</div>
   <div class="field">
     <%= f.label :link %><br />
     <%= f.text_field :link %>

@@ -1,3 +1,33 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+#user-info{
+	width: 33%;
+	height: 100%;
+	position: fixed;
+	font-family: helvetica, sans-serif;
+	font-weight: bold;
+	top: 40px;
+	padding-left: 10px;
+}
+
+#user-info .avatar{
+
+}
+
+#user-info .personal{
+    
+}
+
+#user-info .stats{
+
+}
+
+#feed{
+ width: 66%;
+ height: 100%;
+ padding-top: 16px;
+ float: right;    
+}

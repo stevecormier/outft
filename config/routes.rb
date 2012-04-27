@@ -4,6 +4,7 @@ Outft::Application.routes.draw do
 
   resources :outfits
   resources :sessions, :only => [:new, :create, :destroy]
+  resources :relationships, :only => [:create, :destroy]
   resources :users do
     resources :pieces
     resources :outfits

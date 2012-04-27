@@ -2,7 +2,10 @@ require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :password, :password_confirmation
+  attr_accessible :name, :email, :password, :password_confirmation, :avatar, :location, :about
+  
+  extend FriendlyId
+  friendly_id :name, :use => :slugged
   
   validates :password, :presence => true,
                        :confirmation => true,
@@ -10,6 +13,9 @@ class User < ActiveRecord::Base
   validates :name , :presence => true, :length => { :maximum => 50 }, :uniqueness => { :case_sensitive => false }
   validates :email, :presence => true, :uniqueness => { :case_sensitive => false }
   
+  has_attached_file :avatar, :styles => { :profile => "250x400",
+                                          :thumb => "80x80",
+                                          :small => "40x40"}
   
   has_many :pieces, :dependent => :destroy
   has_many :outfits, :dependent => :destroy
@@ -41,7 +47,7 @@ class User < ActiveRecord::Base
   end
 
   def following?(followed)
-    relationships.find_by_followed_id()
+    relationships.find_by_followed_id(followed)
   end
   
   def follow!(followed)
@@ -49,7 +55,7 @@ class User < ActiveRecord::Base
   end
   
   def unfollow!(followed)
-    relationships.find_by_follow_id(followed).destroy
+    relationships.find_by_followed_id(followed).destroy
   end
     
   private

@@ -1,4 +1,24 @@
 class PiecesController < ApplicationController
+  
+  def new
+    @piece = Piece.new
+    @user = current_user
+    @title = "New Piece"
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render :json => @piece }
+    end
+  end
+  
+  def show
+    @piece = Piece.find(params[:id])
+    @title = @piece.name
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @piece }
+    end
+  end
     
   def create
     @user = User.find(params[:user_id])

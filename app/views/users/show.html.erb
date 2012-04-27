@@ -1,37 +1,51 @@
 <p id="notice"><%= notice %></p>
 
+<div id = "user-info">
+
+<span class = "avatar">
+<%= image_tag @user.avatar.url(:profile) %>
+</span>
+<span class = "personal">
 <p>
-  <b>Name:</b>
   <%= @user.name %>
 </p>
 
 <p>
-  <b>Email:</b>
-  <%= @user.email %>
-</p>
-
 <p>
-  <b>Location:</b>
   <%= @user.location %>
 </p>
 
 <p>
-  <b>About:</b>
   <%= @user.about %>
 </p>
 
-<h2>Pieces</h2>
-<%= render @user.pieces %>
+</span>
 
+<span class = "stats">
 
-<h2>Add a piece:</h2>
-<%= render "pieces/form" %>
+<%= render 'shared/stats' %>
+<%= render 'follow_form' if signed_in? %>
+<p><%= @user.pieces.count %> pieces
+<%= link_to "New", new_user_piece_path(current_user) %>
 
-<h2>Outfits</h2>
-<%= render @user.outfits%>
+</p>
+<p><%= @user.outfits.count %> outfits</p>
 
-<h2>Add an outfit</h2>
-<%= render "outfits/form"%>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
+</span>
+<%= link_to 'Edit', edit_user_path(current_user) %> |
 <%= link_to 'Back', users_path %>
+
+</div>
+
+<div id = "feed">
+	<ul>
+	<%= @user.pieces.each do |piece| %>
+		<div id = "piece">
+		<li>
+			
+		<%= render piece %>
+		</li>
+		</div>
+	<% end %>
+	</ui>
+</div>
