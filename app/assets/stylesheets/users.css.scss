@@ -31,3 +31,41 @@
  padding-top: 16px;
  float: right;    
 }
+
+#user-thumb{
+    width: 200px;
+    height: 100px;
+    padding: 5px;
+    margin: 2px;  
+}
+
+#user-thumb a{
+    text-decoration: none;
+}
+
+#user-thumb:hover{
+    background-color: #E3E3E3;
+    color: #000000;
+    -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+
+#user-thumb .image{
+    font-weight: bold;
+    text-align: right; 
+    position: absolute;
+
+}
+
+#user-thumb .name{
+    font-weight: bold;
+    text-align: right; 
+
+}
+#user-thumb .location{
+    font-weight: bold;
+    text-align: right; 
+    font-size: 75%;
+    
+}

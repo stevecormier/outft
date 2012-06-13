@@ -1,5 +1,15 @@
 class PiecesController < ApplicationController
   
+  def index
+    @user = User.find(params[:user_id])
+    @pieces = @user.pieces
+    @title = "Pieces"
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @pieces }
+    end
+  end
+  
   def new
     @piece = Piece.new
     @user = current_user

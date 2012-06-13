@@ -1,8 +1,11 @@
 <h1><%= @title %></h1>
 
 <% unless @users.empty? %>
-  <ul class="users">
-    <%= render @users %>
-  </ul>
-  <%= will_paginate @users %>
+<ul>
+<% @users.each do |user| %>
+	<li>
+	<%= render user %>
+	</li>
+<% end %>
+</ul>
 <% end %>
