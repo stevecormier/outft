@@ -26,10 +26,14 @@
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if signed_in? %>
 <p><%= @user.pieces.count %> pieces
+<%= link_to "View All", user_pieces_path(current_user) %>	
 <%= link_to "New", new_user_piece_path(current_user) %>
 
 </p>
-<p><%= @user.outfits.count %> outfits</p>
+<p><%= @user.outfits.count %> outfits
+<%= link_to "View All", user_outfits_path(current_user) %>	
+<%= link_to "New", new_user_outfit_path(current_user) %>	
+</p>
 
 </span>
 <%= link_to 'Edit', edit_user_path(current_user) %> |
@@ -40,11 +44,7 @@
 <div id = "feed">
 	<ul>
 	<%= @user.pieces.each do |piece| %>
-		<div id = "piece">
-		<li>
 			<%= render piece %>
-		</li>
-		</div>
 	<% end %>
 	</ui>
 </div>

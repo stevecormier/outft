@@ -2,12 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#piece{
-    height: 200px;
-    width: 200px;
-    display: inline-block;
-}
-
 #new-piece{
     padding-top: 40px;
 }
+
+#piece-thumb{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    padding: 5px;
+    margin: 2px;  
+}
+
+#piece-thumb a{
+    text-decoration: none;
+}
+
+#piece-thumb:hover{
+    background-color: #E3E3E3;
+    color: #000000;
+    -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+}
+

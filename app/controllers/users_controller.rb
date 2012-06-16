@@ -101,7 +101,7 @@ class UsersController < ApplicationController
   end
   
   def pieces
-    @title = "Pieces"
+      @title = "Pieces"
     @user = User.find(params[:id])
     @users = @user.pieces
     render 'show_pieces'

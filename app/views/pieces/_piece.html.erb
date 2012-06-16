@@ -1,18 +1,24 @@
+<%= link_to(user_piece_path(piece.user, piece)) do %>
 
-<p>
-	<%= link_to image_tag(piece.image.url(:thumb)), user_piece_path(piece.user, piece) %> 
-<p>
-  <b>Name:</b>
-  <%= piece.name %>
-</p>
+	<div id = "piece-thumb">
+		<li>
+		<p>
+			<%= image_tag(piece.image.url(:thumb)) %> 
+		<p>
+  			<b>Name:</b>
+  			<%= piece.name %>
+		</p>
 
-<p>
-  <b>Link:</b>
-  <%= piece.link %>
-</p>
+		<p>
+  			<b>Link:</b>
+  			<%= piece.link %>
+		</p>
 
-<p>
-  <%= link_to 'Destroy Piece', [piece.user, piece],
-              :confirm => 'Are you sure?',
-              :method => :delete %>
-</p>
+		<p>
+  			<%= link_to 'Destroy Piece', [piece.user, piece], :confirm => 'Are you sure?', :method => :delete %>
+		</p>
+		</li>
+	</div>
+
+<% end %>
+
