@@ -1,0 +1,19 @@
+<h1>Listing outfits</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>desc</th>
+	<th>view</th>
+
+  </tr>
+
+<% @outfits.each do |outfit| %>
+  <tr>
+    <td><%= outfit.title %></td>
+    <td><%= outfit.description %></td>
+	<td><%= link_to "view", user_outfit_path(outfit.user, outfit) %></td>
+
+  </tr>
+<% end %>
+</table>

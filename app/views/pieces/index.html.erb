@@ -1,0 +1,19 @@
+<h1>Listing pieces</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Link</th>
+	<th>view</th>
+
+  </tr>
+
+<% @pieces.each do |piece| %>
+  <tr>
+    <td><%= piece.name %></td>
+    <td><%= piece.link %></td>
+	<td><%= link_to "view", user_piece_path(piece.user, piece) %></td>
+
+  </tr>
+<% end %>
+</table>
