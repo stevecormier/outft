@@ -1,6 +1,6 @@
-o: ActiveSupport::Cache::Entry	:@value"¢{"
-class"BundledAsset"_version"%aa7d0db7619379e13b08335dee027df2"lengthiB"pathname"0$root/app/assets/javascripts/application.js"required_assets_digest"%2d2275b047eaba42a6d27612c8156c8e"logical_path"application.js"content_type"application/javascript"
-mtime"2012-07-26T01:04:03-04:00"source"B/*!
+o: ActiveSupport::Cache::Entry	:@value"¯{"
+mtime"2012-07-26T18:41:28-04:00"required_assets_digest"%eb1f79c4c9095647ccfeb2b5ea3cee22"_version"%aa7d0db7619379e13b08335dee027df2"
+class"BundledAsset"pathname"0$root/app/assets/javascripts/application.js"lengthiO"digest"%bd704c608041db3b01c1a41e3eb148a5"content_type"application/javascript"logical_path"application.js"source"O/*!
  * jQuery JavaScript Library v1.7.1
  * http://jquery.com/
  *
@@ -9640,41 +9640,44 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
   });
 
 })( jQuery );
+var pieces = new Array();
 
-function sync_svpply(){
+function sync_svpply(callback){
     
-    var pieces = new Array();
     var svpply_url = "https://api.svpply.com/v1/users/stevecormier/owns/products.json"
     
     $.ajax({
         url: svpply_url,
         dataType: 'jsonp',
         success: function(results){
-            console.log(results);
             
             $.each(results.response.products, function(i,product){
             			   if(product.category == "apparel" || product.category == "accessories"){
+            			       
             			       var piece = {"name": product.page_title,
             			                    "image": product.image,
             			                    "link": product.store.url,
-            			                    }
-            			                    
+            			                    }            
             			        pieces.push(piece);
             			   }
+            
+            });
+            
+            console.log(pieces);
+            $.ajax({
+                type: "POST",
+                url:("/users/steve/multiple_create/"),
+                data: {"pieces": pieces},
+                dataType: "script"    
             });
         }
     });
+ }  
+    
 
 
-    //TODO: use JSON to get "current_user" variable
-    jQuery.ajax({
-        async:true,
-        type: "POST",
-        url:("/users/steve/multiple_create/"),
-        data: {"pieces": pieces},
-        dataType: "script"    
-    });
-};
+    
+;
 // This is a manifest file that'll be compiled into including all the files listed below.
 // Add new JavaScript/Coffee code in separate files in this directory and they'll automatically
 // be included in the compiled file accessible from http://example.com/assets/application.js
@@ -9685,4 +9688,4 @@ function sync_svpply(){
 
 
 ;
-"digest"%c4a9c2915512a969231278028088a7d8:@created_atf1343279045.912874 l‡:@expires_in0:@compressedF
+:@created_atf1343342489.508604 Œø:@expires_in0:@compressedF

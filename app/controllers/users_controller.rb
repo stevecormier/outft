@@ -124,15 +124,11 @@ class UsersController < ApplicationController
     end
 
     @piece_hashes.each do |piece_hash|
-      piece = @user.Piece.new(piece_hash)
-      if piece.save
-        @pieces << piece
-      else
-        @failed << piece
-      end  
+      piece = @user.pieces.create(piece_hash)
     end
     
-    redirect_to user_path(@user)
+    redirect_to @user
+    
   end
   
 end

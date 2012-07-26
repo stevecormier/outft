@@ -13,6 +13,7 @@
     <td><%= piece.name %></td>
     <td><%= piece.link %></td>
 	<td><%= link_to "view", user_piece_path(piece.user, piece) %></td>
+	<td><%= link_to 'Destroy Piece', [piece.user, piece], :confirm => 'Are you sure?', :method => :delete %></td>
 
   </tr>
 <% end %>
