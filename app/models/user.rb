@@ -1,6 +1,7 @@
 require 'digest'
 
 class User < ActiveRecord::Base
+
   attr_accessor :password
   attr_accessible :name, :email, :password, :password_confirmation, :avatar, :location, :about
   
@@ -57,7 +58,7 @@ class User < ActiveRecord::Base
   def unfollow!(followed)
     relationships.find_by_followed_id(followed).destroy
   end
-    
+      
   private
     def encrypt_password
       self.salt = make_salt unless has_password?(password)

@@ -6,13 +6,14 @@
 <%= image_tag @user.avatar.url(:profile) %>
 </span>
 <span class = "personal">
-<p>
+<h1>
   <%= @user.name %>
-</p>
+</h1>
 
 <p>
-<p>
+<h2>
   <%= @user.location %>
+</h2>
 </p>
 
 <p>
@@ -26,12 +27,12 @@
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if signed_in? %>
 <p><%= @user.pieces.count %> pieces
-<%= link_to "View All", user_pieces_path(current_user) %>	
+<%= link_to "View All", user_pieces_path(@user) %>	
 <%= link_to "New", new_user_piece_path(current_user) %>
 
 </p>
 <p><%= @user.outfits.count %> outfits
-<%= link_to "View All", user_outfits_path(current_user) %>	
+<%= link_to "View All", user_outfits_path(@user) %>	
 <%= link_to "New", new_user_outfit_path(current_user) %>	
 </p>
 
@@ -43,8 +44,8 @@
 
 <div id = "feed">
 	<ul>
-	<%= @user.pieces.each do |piece| %>
-			<%= render piece %>
+	<%= @user.outfits.each do |outfit| %>
+			<%= render outfit %>
 	<% end %>
 	</ui>
 </div>

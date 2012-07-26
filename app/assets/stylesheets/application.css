@@ -10,6 +10,17 @@ a{
     text-decoration: none;
 }
 
+h1{
+    font-family: helvetica, sans-serif;
+    font-size: 40pt;
+}
+
+h2{
+    font-family: helvetica, sans-serif;
+    font-size: 25pt;
+}
+
+
 ul{
     list-style: none;
 }

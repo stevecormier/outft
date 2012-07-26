@@ -41,6 +41,5 @@ class PiecesController < ApplicationController
     @piece = @user.pieces.find(params[:id])
     @piece.destroy
     redirect_to user_path(@user)
-  end
-    
+  end  
 end

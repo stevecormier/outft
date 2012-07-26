@@ -38,3 +38,5 @@ end
 gem 'friendly_id'
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 2.0'
+gem 'yajl-ruby'
+gem "json", "~> 1.7.3"

@@ -101,9 +101,38 @@ class UsersController < ApplicationController
   end
   
   def pieces
-      @title = "Pieces"
+    @title = "Pieces"
     @user = User.find(params[:id])
     @users = @user.pieces
     render 'show_pieces'
   end
+  
+  def svpply
+    @title = "svpply"
+    @user = current_user
+    render 'svpply'
+  end  
+  
+  def multiple_create
+    
+    @user = current_user
+    
+    if params[:pieces].is_a?(Hash)
+      @piece_hashes = params[:pieces].values
+    else
+      @piece_hashes = params[:pieces]
+    end
+
+    @piece_hashes.each do |piece_hash|
+      piece = @user.Piece.new(piece_hash)
+      if piece.save
+        @pieces << piece
+      else
+        @failed << piece
+      end  
+    end
+    
+    redirect_to user_path(@user)
+  end
+  
 end

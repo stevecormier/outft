@@ -1,7 +1,8 @@
 Outft::Application.routes.draw do
   
   get "sessions/new"
-
+  
+  resources :dashboard
   resources :outfits
   resources :sessions, :only => [:new, :create, :destroy]
   resources :relationships, :only => [:create, :destroy]
@@ -10,13 +11,14 @@ Outft::Application.routes.draw do
     resources :outfits
     member do
       get :following, :followers
+      get :svpply
+      post :multiple_create
     end
   end
   
   match '/signup', :to => 'users#new'
   match '/signin', :to => 'sessions#new'
   match '/signout', :to => 'sessions#destroy'
-
   get "home/index"
 
   # The priority is based upon order of creation:

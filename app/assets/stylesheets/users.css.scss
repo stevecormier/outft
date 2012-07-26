@@ -4,12 +4,13 @@
 
 
 #user-info{
-	width: 33%;
+	width: 300px;
 	height: 100%;
 	position: fixed;
 	font-family: helvetica, sans-serif;
 	font-weight: bold;
-	top: 40px;
+	top: 43px;
+	padding-top: 16px;
 	padding-left: 10px;
 }
 
@@ -26,12 +27,14 @@
 }
 
 #feed{
- width: 66%;
- height: 100%;
- padding-top: 16px;
- float: right;    
+    position: absolute;
+    left: 300px;
+    top: 32px;
+    width: 60%;
+    height: 100%;
+    padding-top: 16px;
+    float: right;   
 }
-
 #user-thumb{
     width: 200px;
     height: 100px;
