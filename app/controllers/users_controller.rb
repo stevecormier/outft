@@ -124,7 +124,9 @@ class UsersController < ApplicationController
     end
 
     @piece_hashes.each do |piece_hash|
-      piece = @user.pieces.create(piece_hash)
+      @piece = @user.pieces.new(piece_hash)
+      @piece.image_from_url
+      @piece.save
     end
     
     redirect_to @user

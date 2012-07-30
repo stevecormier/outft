@@ -16,7 +16,9 @@ class User < ActiveRecord::Base
   
   has_attached_file :avatar, :styles => { :profile => "250x400",
                                           :thumb => "80x80",
-                                          :small => "40x40"}
+                                          :small => "40x40"},
+                            :url  => "/assets/avatars/:id/:style/:basename.:extension",
+                            :path => ":rails_root/public/assets/avatars/:id/:style/:basename.:extension"
   
   has_many :pieces, :dependent => :destroy
   has_many :outfits, :dependent => :destroy

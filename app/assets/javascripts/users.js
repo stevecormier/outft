@@ -13,7 +13,7 @@ function sync_svpply(callback){
             			   if(product.category == "apparel" || product.category == "accessories"){
             			       
             			       var piece = {"name": product.page_title,
-            			                    "image": product.image,
+            			                    "image_remote_url": product.image,
             			                    "link": product.store.url,
             			                    }            
             			        pieces.push(piece);
