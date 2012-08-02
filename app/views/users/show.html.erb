@@ -26,15 +26,21 @@
 
 <%= render 'shared/stats' %>
 <%= render 'follow_form' if signed_in? %>
-<p><%= @user.pieces.count %> pieces
+<p>
+<%= @user.pieces.count %> pieces
 <%= link_to "View All", user_pieces_path(@user) %>	
 <%= link_to "New", new_user_piece_path(current_user) %>
-
 </p>
-<p><%= @user.outfits.count %> outfits
+<p>
+<%= @user.outfits.count %> outfits
 <%= link_to "View All", user_outfits_path(@user) %>	
 <%= link_to "New", new_user_outfit_path(current_user) %>	
 </p>
+
+<p>
+<%= link_to "Import pieces from Svpply", svpply_user_path(current_user)%>
+</p>
+
 
 </span>
 <%= link_to 'Edit', edit_user_path(current_user) %> |

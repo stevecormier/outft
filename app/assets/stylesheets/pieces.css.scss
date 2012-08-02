@@ -10,8 +10,14 @@
     height: 200px;
     width: 200px;
     display: inline-block;
+    position:relative;
     padding: 5px;
     margin: 2px;  
+    
+    -webkit-transition: all 0.32s ease-out;
+       -moz-transition: all 0.32s ease-out;
+         -o-transition: all 0.32s ease-out;
+            transition: all 0.32s ease-out;
 }
 
 #piece-thumb a{
@@ -19,10 +25,8 @@
 }
 
 #piece-thumb:hover{
-    background-color: #E3E3E3;
-    color: #000000;
-    -webkit-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    -moz-box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    box-shadow:0 1px 10px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    top: -3px;
+    left: -3px;
+    box-shadow: #EE5588 1px 1px, #EE5588 2px 2px, #EE5588 3px 3px, #EE5588 4px 4px, #EE5588 5px 5px, #EE5588 6px 6px, #EE5588 7px 7px;
 }
 

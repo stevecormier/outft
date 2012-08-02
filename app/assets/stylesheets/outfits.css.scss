@@ -5,17 +5,55 @@
 
 #outfit-feed{
     background: #EEEEEE;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    border-radius: 20px;
     padding: 5px;
-    margin: 10px auto 5px auto;
-    -webkit-box-shadow:0 1px 40px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    -moz-box-shadow:0 1px 40px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-    box-shadow:0 1px 40px rgba(0, 0, 0, 0.25),inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    margin: 0 auto 25px auto;
     width: 652px;
+    box-shadow: #303030 1px 1px, #303030 2px 2px, #303030 3px 3px, #303030 4px 4px, #303030 5px 5px, #303030 6px 6px, #303030 7px 7px;
+     
 }
 
-.selected{
+#piece_selector{
+    margin-left: auto;
+    margin-right: auto;
+    position: static;
+    width: 900px;
     border: 1px solid #999;
+
+}
+
+#piece_selector ul{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#piece_selector li{
+    position:relative;
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    
+    
+    -webkit-transition: all 0.32s ease-out;
+       -moz-transition: all 0.32s ease-out;
+         -o-transition: all 0.32s ease-out;
+            transition: all 0.32s ease-out;
+}
+
+#piece_selector li:hover{
+    top: -3px;
+    left: -3px;
+    box-shadow: #EE5588 1px 1px, #EE5588 2px 2px, #EE5588 3px 3px, #EE5588 4px 4px, #EE5588 5px 5px, #EE5588 6px 6px, #EE5588 7px 7px;
+}
+
+#piece_selector li:hover.selected{
+    top: -3px;
+    left: -3px;
+    box-shadow: #EE5588 1px 1px, #EE5588 2px 2px, #EE5588 3px 3px, #EE5588 4px 4px, #EE5588 5px 5px, #EE5588 6px 6px, #EE5588 7px 7px;
+}
+
+
+#piece_selector li.selected{
+    top: -3px;
+    left: -3px;
+    box-shadow: #303030 1px 1px, #303030 2px 2px, #303030 3px 3px, #303030 4px 4px, #303030 5px 5px, #303030 6px 6px, #303030 7px 7px;
 }

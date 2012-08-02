@@ -1,11 +1,12 @@
-
-<ul id = "piece_selector">
-<% @user.pieces.each do |piece| %>
-  <li value = <%= piece.id %> >
-		<%= image_tag(piece.image.url(:thumb)) %> 
-  </li>
-<% end %>
-</ul>
+<div id = "piece_selector" >
+	<ul >
+		<% @user.pieces.each do |piece| %>
+		<li value = <%= piece.id %> >
+			<%= image_tag(piece.image.url(:thumb)) %> 
+		</li>
+		<% end %>
+	</ul>
+</div>
 
 <%= form_for([@user, @user.outfits.build]) do |f| %>
   <div class="field">
