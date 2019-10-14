@@ -39,5 +39,5 @@ gem 'friendly_id'
 gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 2.0'
 gem 'yajl-ruby'
-gem "json", "~> 1.7.3"
+gem "json", "~> 1.7.7"
 gem 'rake', '0.9.2.2'
