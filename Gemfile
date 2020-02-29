@@ -40,4 +40,4 @@ gem 'will_paginate', '~> 3.0'
 gem 'paperclip', '~> 2.0'
 gem 'yajl-ruby'
 gem "json", "~> 1.7.3"
-gem 'rake', '0.9.2.2'
+gem 'rake', '12.3.3'
